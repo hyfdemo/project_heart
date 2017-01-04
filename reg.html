@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>注册</title>
+  <link href="css/bootstrap.css" rel="stylesheet">
+  <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+      <script src="js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+  <div class="container">
+      <div class="col-xs-6 col-xs-offset-3" style="margin-top: 10%;margin-bottom: 10%;">
+    <form id="reg" class="form-horizontal">
+      <h3 class="form-group" style="margin-bottom: 20px">HEART.</h3>
+      <div class="form-group has-feedback">
+        <label class="sr-only" for="uname">用户名</label>
+        <input name='uname' id="uname" class="form-control" placeholder="请输入用户名" autocomplete="off"/>
+        <span class="help-block">用户名</span>
+        <span class="glyphicon form-control-feedback"></span>
+      </div>
+      <div class="form-group">
+        <label class="sr-only" for="upwd">密码</label>
+        <input type="password" name='upwd' id="upwd" class="form-control" placeholder="请输入密码" autocomplete="off" />
+        <span class="help-block">密码</span>
+      </div>
+      <div class="form-group">
+        <input id="btn-reg" type="button" class="form-control btn-primary" value="注册"/>
+      </div>
+      <a style="margin-left: -15px" href="first.html">已有账号，返回首页登录</a>
+    </form>
+      </div>
+    </div>
+<script src="js/jquery-1.11.3.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/index.js"></script>
+  <script>
+    $('#uname').blur(function(){
+      var data=$(this).val();
+      $.ajax({
+        type: 'post',
+        url: 'data/uname_confirm.php?uname='+data,
+        success: function (list) {
+          if (list.code === 1) {
+            $('#uname').next('span').html(list.msg);
+            $('#uname').next().next().removeClass('glyphicon-exclamation-sign').addClass('glyphicon-ok-sign').parent().removeClass('has-warning').addClass('has-success');
+            $('#btn-reg').click(function(){
+              var data = $('#reg').serialize();
+              $.ajax({
+                type: 'post',
+                url: 'data/user_reg.php',
+                data: data,
+                success: function (list) {
+                  if (list.code === 1) {
+                    alert(list.msg);
+                    location.href = 'first.html';
+                  }
+                },
+                error: function () {
+                  alert('响应完成但有问题，请检查network');
+                }
+              })
+
+            })
+
+          } else if(list.code===0){
+            $('#uname').next('span').html(list.msg);
+            $('#uname').next().next().removeClass('glyphicon-ok-sign').addClass('glyphicon-exclamation-sign').parent().removeClass('has-success').addClass('has-warning');
+
+          }
+        }
+      })
+    })
+  </script>
+</body>
+</html>
