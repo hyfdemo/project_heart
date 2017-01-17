@@ -15,7 +15,8 @@
   <div class="container">
       <div class="col-xs-6 col-xs-offset-3" style="margin-top: 10%;margin-bottom: 10%;">
     <form id="reg" class="form-horizontal">
-      <h3 class="form-group" style="margin-bottom: 20px">HEART.</h3>
+      <h3 class="form-group" style="margin-bottom: 20px">HEART.
+      </h3>
       <div class="form-group has-feedback">
         <label class="sr-only" for="uname">用户名</label>
         <input name='uname' id="uname" class="form-control" placeholder="请输入用户名" autocomplete="off"/>
@@ -28,6 +29,12 @@
         <span class="help-block">密码</span>
       </div>
       <div class="form-group">
+        <label class="sr-only" for="ucode">验证码</label>
+        <input name='vcode' id="ucode" class="form-control" placeholder="请输入验证码" autocomplete="off" style="display: inline-block;width:80%;vertical-align: middle;"/>
+        <img class="vcode" src="data/vcode.php">
+        <span class="help-block">验证码</span>
+      </div>
+      <div class="form-group">
         <input id="btn-reg" type="button" class="form-control btn-primary" value="注册"/>
       </div>
       <a style="margin-left: -15px" href="first.html">已有账号，返回首页登录</a>
@@ -38,10 +45,15 @@
 <script src="js/bootstrap.min.js"></script>
 <script src="js/index.js"></script>
   <script>
+//    验证码
+    $('img.vcode').click(function(){
+      this.src='data/vcode.php?_='+Math.random();
+    })
+//登录验证
     $('#uname').blur(function(){
       var data=$(this).val();
       $.ajax({
-        type: 'post',
+        type: 'get',
         url: 'data/uname_confirm.php?uname='+data,
         success: function (list) {
           if (list.code === 1) {
@@ -55,8 +67,10 @@
                 data: data,
                 success: function (list) {
                   if (list.code === 1) {
-                    alert(list.msg);
+                    $('#ucode').siblings('span').html(list.msg);
                     location.href = 'first.html';
+                  }else if(list.code===-1){
+                    $('#ucode').siblings('span').html(list.msg);
                   }
                 },
                 error: function () {
