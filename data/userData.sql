@@ -9,4 +9,9 @@ CREATE TABLE udata(
 );
 INSERT INTO udata VALUES
 (NULL,'小明','123'),
-(NULL,'小红','123')
+(NULL,'小红','123');
+CREATE TABLE comm(
+ cid INT PRIMARY KEY AUTO_INCREMENT,
+ comment VARCHAR(1000),
+ ucname VARCHAR(32)
+);

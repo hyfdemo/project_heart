@@ -3,9 +3,14 @@
 body{
   font-family: "Helvetica Neue", "Glyphicons Halflings", "SimHei";
   position:relative;
+  margin-bottom:80px;
 }
-.navbar-header>a>span{
-  color: #F73859;
+.navbar-header>a>span,h3>span{
+  display: inline-block;
+  background: #F73859;
+  width:5px;
+  height:5px;
+  border-radius: 5px;
 }
 span.row-sign{
   display: inline-block;
@@ -20,7 +25,13 @@ div.pro-caption{
 div.pro-caption:hover{
   background: #F73859;
   color: #fff;
-  box-shadow: 0px 18px 71px -10px rgba(0, 0, 0, 0.75);
+  box-shadow: 0 10px 40px rgba(0,0,0,.5);
+  //box-shadow: 0px 18px 71px -10px rgba(0, 0, 0, 0.75);
+}
+div.pro-caption:hover .popover{
+  color:#000;
+  top:-130%;
+  opacity:1;
 }
 div.panel-title>span{
   transition: .3s;
@@ -34,10 +45,10 @@ div.panel-title>span.active{
   height:50px;
   background:url("../img/true.jpg") -190px -20px no-repeat;
 }
-body>a{
+#to-top{
   position: fixed;
-  bottom:40px;
-  right:20px;
+  bottom:80px;
+  right:25px;
   width: 40px;
   height:40px;
   border-radius: 40px;
@@ -45,36 +56,63 @@ body>a{
   color: #fff;
   background:rgba(100,100,100,.8);
   text-decoration: none;
-  transition: .3s;
-  display: none;
+  transition: .2s linear;
+  opacity:0;
 }
-body>a:hover{
+#to-top:hover{
   color: #000;
   background: #fff;
   text-decoration: none;
 }
-//导航栏
+//顶部导航栏
+.navbar-nav.nav li.active a{
+  color:#F73859;
+}
+.navbar-fixed-top a{
+  color:#fff;
+}
+#nav-menu .glyphicon-user{
+  color:#fff;
+}
+#nav-menu>.list-inline{
+  margin-top: 1rem !important;
+}
 a.navbar-brand span,a.navbar-brand{
   font-size: 24px;
 }
+.navbar-nav a{
+  font-size:16px;
+  padding:15px 25px !important;
+}
 .nav-fade{
-  color: #fff;
-  transition:.5s;
+  height:60px;
+  transition:.3s linear;
   //box-shadow: 0px 5px 7px -7px rgba(0, 0, 0, 0.15);
 }
 .nav-fadeout{
-  transition:.5s;
-  color: #000;
+  transition:.3s linear;
+  height:50px;
   background-color:#fff;
-  padding: 2px 0;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
+
+//定位导航内容
+//$('#comt').click(function(){
+//$('html,body').animate({scrollTop:$('#comments').offset().top}, 800);
+//});
+
 //评论
-ul.media img{
+.media img{
   width:50px;
   height: 50px;
 }
-//服务
+.media a{
+  color:#777;
+}
+.media a:hover{
+  color:#222;
+}
+//车
 .thumbnail{
   position:relative;
 }
@@ -86,13 +124,70 @@ ul.media img{
   top:0;
   left:0;
   width:100%;
-  height:55%;
-  background: rgba(0,0,0,.2);
-  transition:.5s linear;
+  height:100%;
+  background: rgba(0,0,0,0);
+  transition:all .5s linear;
 }
 .thumbnail:hover img{
   transform:scale(1.1);
 }
 .thumbnail:hover .pic-mask{
-  background: rgba(0,0,0,0);
+  background: rgba(0,0,0,.4);
+}
+.nav-tabs>li{
+  width:10rem;
+  display: inline-block;
+}
+#car-lexus .close{
+  font-size: 25px;
+  color:#eee;
+  opacity:0.5;
+}
+#car-lexus .close:hover{
+  color:#fff;
+  opacity:1;
+}
+//游图片翻转
+/* entire container, keeps perspective */
+.flip-container {
+  perspective: 1000px;
+}
+/* flip the pane when hovered */
+.flip-container:hover .flipper {
+  transform: rotateY(180deg);
+}
+
+//.flip-container, .front, .back {
+//  width: 320px;
+//  height: 480px;
+//}
+
+/* flip speed goes here */
+.flipper {
+  transition: 0.6s;
+  transform-style: preserve-3d;
+  //transform-origin:100% 240px;
+  position: relative;
+}
+
+/* hide back of pane during swap */
+.front,.back{
+  backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+  /* front pane, placed above back */
+.front {
+  z-index: 2;
+}
+.front h3{
+  position: absolute;
+  top: 70%;
+  left: 1%;
+  color: #fff;
+}
+/* back, initially hidden pane */
+.back {
+  transform: rotateY(180deg);
 }

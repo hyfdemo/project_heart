@@ -8,18 +8,19 @@
   top: 0;
   left: 0;
   z-index: @zindex-popover;
-  display: none;
-  max-width: @popover-max-width;
+  opacity:0;//display: none;
+  max-width: inherit;//@popover-max-width;
   padding: 1px;
   // Our parent element can be arbitrary since popovers are by default inserted as a sibling of their target element.
   // So reset our font and text properties to avoid inheriting weird values.
   .reset-text();
   font-size: @font-size-base;
+  transition:.3s linear;
 
   background-color: @popover-bg;
   background-clip: padding-box;
-  border: 1px solid @popover-fallback-border-color;
-  border: 1px solid @popover-border-color;
+  border: 2px solid @brand-primary;//@popover-fallback-border-color;
+  //border: 1px solid @popover-border-color;
   border-radius: @border-radius-large;
   .box-shadow(0 5px 10px rgba(0,0,0,.2));
 
@@ -71,8 +72,8 @@
     left: 50%;
     margin-left: -@popover-arrow-outer-width;
     border-bottom-width: 0;
-    border-top-color: @popover-arrow-outer-fallback-color; // IE8 fallback
-    border-top-color: @popover-arrow-outer-color;
+    border-top-color: @brand-primary;//@popover-arrow-outer-fallback-color; // IE8 fallback
+    //border-top-color: @popover-arrow-outer-color;
     bottom: -@popover-arrow-outer-width;
     &:after {
       content: " ";

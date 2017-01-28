@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    .front {position:relative; width: 100%; height: 100%; margin:0 auto; background-position: center center; background-repeat: no-repeat;}
+    .front {background-image: url(img/cd/xm.jpg);background-color: rgba(255,255,255,0.24);}
+    .back {position:relative; width: 0; height: 100%; margin:0 auto; display: none; background-color: transparent);}
+    .back>div {opacity: 0.9; }
+/*.back strong { display: block; font-size: 16px;}*/
+/*.back strong.space { margin-top:8px; padding-top: 6px; border-top:1px dotted rgba(255,255,255,0.3);}*/
+/*.big>div { padding-top:60px; font-size: 16px; line-height: 30px;}*/
+  </style>
+</head>
+<body>
+<div class="container" style="width:200px;height:200px;box-sizing:border-box;display: block;position: relative;background: rgba(0,0,0,.1);">
+  <!--<div class="front" style="width:100%;display: block;background:url('img/cd/xm.jpg') rgba(0,0,0,.5);">rioqwhpti</div>-->
+  <!--<div class="back" style="width:0;display: none;background: rgba(150,150,150,.5);">yert ert</div>-->
+  <div class="front" style="width: 100%; display: block;overflow: hidden;">
+    <h3>大熊猫基地</h3></div>
+  <div class="back" style="width: 100%; display: none;overflow:hidden">
+    <div>
+      大熊猫是人见人爱的珍稀动物，世界生物多样性保护的标志，亦是和平友好的象征。成都所属的崇州、都江堰、大邑、彭州、邛崃市县等均有大熊猫出没。 成都大熊猫繁育研究基地，具有世界一流水平，位于成都北郊斧头山，距市区10公里，有一条宽阔的熊猫大道与市区相连，大熊猫博物馆内珍贵的资料、丰富的展品举世无双，是认识大熊猫、回归大自然、观光旅游、休闲娱乐的极佳场所。
+              </div>
+  </div>
+
+
+</div>
+
+<!--<a onclick="toCoursePage(&#39;嵌入式&#39;)">-->
+
+<!--</a>-->
+<script src="js/jquery-1.11.3.js"></script>
+<script>
+
+
+  $(function(){
+    $('.container').hover(function(){
+        $(this).find(".front").stop().animate({"width":0},150,function(){
+          $(this).hide().next().show();
+          $(this).next().animate({'width':'100%'},150);
+        });
+      },
+      function(){
+        $(this).find(".back").stop().animate({"width":0},150,function(){
+          $(this).hide().prev().show();
+          $(this).prev().animate({'width':'100%'},150);
+        });
+      });
+
+
+  });
+</script>
+</body>
+</html>
