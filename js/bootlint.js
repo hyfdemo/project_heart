@@ -10332,7 +10332,7 @@ function outside(version, range, hilo, loose) {
   }
 
   // From now on, variable terms are as if we're in "gtr" mode.
-  // but note that everything is flipped for the "ltr" function.
+  // but cd that everything is flipped for the "ltr" function.
 
   for (var i = 0; i < range.set.length; ++i) {
     var comparators = range.set[i];

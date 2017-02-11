@@ -94,10 +94,17 @@
   position: absolute;
   top: 40%;
   left: 0;
+  z-index:10;
   //bottom: 0;
   height: @carousel-control-height;
   width: @carousel-control-width;
-  .opacity(@carousel-control-opacity);
+  //.opacity(@carousel-control-opacity);
+  opacity:0;
+  -webkit-transition: .5s linear;
+  -moz-transition: .5s linear;
+  -ms-transition: .5s linear;
+  -o-transition: .5s linear;
+  transition: .5s linear;
   font-size: @carousel-control-font-size;
   color: @carousel-control-color;
   text-align: center;
@@ -107,12 +114,14 @@
 
   // Set gradients for backgrounds
   &.left {
-    #gradient > .horizontal(@start-color: rgba(0,0,0,.5); @end-color: rgba(0,0,0,.0001));
+    background: #000;
+    //#gradient > .horizontal(@start-color: rgba(0,0,0,.5); @end-color: rgba(0,0,0,.0001));
   }
   &.right {
     left: auto;
     right: 0;
-    #gradient > .horizontal(@start-color: rgba(0,0,0,.0001); @end-color: rgba(0,0,0,.5));
+    background: #000;
+    //#gradient > .horizontal(@start-color: rgba(0,0,0,.0001); @end-color: rgba(0,0,0,.5));
   }
 
   // Hover/focus state
@@ -121,7 +130,7 @@
     outline: 0;
     color: @carousel-control-color;
     text-decoration: none;
-    .opacity(.9);
+    .opacity(.5);
   }
 
   // Toggles
@@ -175,7 +184,7 @@
   position: absolute;
   bottom: 10px;
   left: 50%;
-  z-index: 15;
+  z-index: 10;
   width: 60%;
   margin-left: -30%;
   padding-left: 0;
@@ -217,10 +226,10 @@
 // Hidden by default for smaller viewports
 .carousel-caption {
   position: absolute;
+  z-index:10;
   left: 15%;
   right: 15%;
-  bottom: 20px;
-  z-index: 10;
+  bottom: 30%;//20px;
   padding-top: 20px;
   padding-bottom: 20px;
   color: @carousel-caption-color;
@@ -241,16 +250,22 @@
     .glyphicon-chevron-right,
     .icon-prev,
     .icon-next {
-      width: 30px;
-      height: 30px;
-      margin-top: -15px;
-      font-size: 30px;
+      //width: 30px;
+      //height: 30px;
+      //margin-top: -15px;
+      //font-size: 30px;
+      width: 27px;
+      height: 50px;
+      margin-top: -47px;
+      font-size: 90px;
     }
     .glyphicon-chevron-left,
+    .fa-angle-left,
     .icon-prev {
       margin-left: -15px;
     }
     .glyphicon-chevron-right,
+    .fa-angle-right,
     .icon-next {
       margin-right: -15px;
     }

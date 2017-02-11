@@ -1,0 +1,79 @@
+
+/*banner*/
+[data-trigger=carousel] {
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+}
+
+[data-trigger=carousel] ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+[data-trigger=carousel] #all {
+    position: absolute;
+    height: inherit;
+    top: 0;
+    left: 0;
+}
+[data-trigger=carousel] #all li{
+    height: inherit;
+    float: left;
+}
+/*[data-trigger=carousel] #indexs {*/
+    /*position: absolute;*/
+    /*bottom: 15px;*/
+    /*right: 60px;*/
+/*}*/
+/*[data-trigger=carousel] #indexs li {*/
+    /*width: 20px;*/
+    /*height: 20px;*/
+    /*display: inline-block;*/
+    /*background-image:radial-gradient(26px at center center,#fff 0%,#555 50%);*/
+    /*border-radius: 50%;*/
+    /*text-align: center;*/
+    /*cursor: pointer;*/
+    /*margin-left: 5px;*/
+/*}*/
+/*[data-trigger=carousel] #indexs li:hover,*/
+/*[data-trigger=carousel] #indexs li.hover {*/
+    /*background-image:radial-gradient(26px at center center,#fff 0%,#e37 50%);*/
+/*}*/
+
+#eat{
+    height:250px;
+}
+#eat .eat-left,.eat-right{
+    display: inline-block;
+    padding:100px 15px;
+    background: #00b3ee;
+}
+#all img{
+    width:100%;
+}
+#all .eat-pic-box{
+    position:relative;overflow: hidden;
+}
+#all .eat-pic{
+    position: absolute;color:#fff;text-align:center;height:100%;width:100%;top:77%;left:0;transition:.3s linear;
+}
+#all .eat-pic-box img{
+    transition:.3s linear;
+}
+#all .eat-pic-box h4{
+    padding: 5px;
+    background:linear-gradient(top, transparent, rgba(0, 0, 0, 0.35));
+    background:-webkit-linear-gradient(top, transparent, rgba(0, 0, 0, 0.35));
+}
+#all .eat-pic-box:hover .eat-pic{
+    background: rgba(0,0,0,.35);
+    top:0;
+}
+#all .eat-pic-box:hover img{
+    transform:scale(1.1);
+}
+#all .eat-pic-box:hover h4{
+    background: 0;
+}
