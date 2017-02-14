@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="ProjectTasksOptions" suppressed-tasks="Babel;Traceur compiler">
+  <component name="ProjectTasksOptions" suppressed-tasks="Babel">
     <TaskOptions isEnabled="true">
       <option name="arguments" value="--no-color $FileName$" />
       <option name="checkSyntaxErrors" value="true" />
@@ -15,7 +15,7 @@
           <FilterInfo>
             <option name="description" value="lessc error format" />
             <option name="name" value="lessc" />
-            <option name="regExp" value="$MESSAGE$$FILE_PATH$?:$LINE$:$COLUMN$" />
+            <option name="regExp" value="$MESSAGE$\Q in \E$FILE_PATH$\Q on line \E$LINE$\Q, column \E$COLUMN$" />
           </FilterInfo>
         </array>
       </option>

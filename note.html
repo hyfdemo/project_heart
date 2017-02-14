@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>记</title>
+  <link rel="icon" href="img/heart.png"/>
+  <link href="css/bootstrap.css" rel="stylesheet">
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+      <script src="js/respond.min.js"></script>
+    <![endif]-->
+  <style>
+    h3{
+      cursor: pointer;
+    }
+    h3 span{
+      display: inline-block;
+      background: #F73859;
+      width: 5px;
+      height: 5px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="col-xs-6 col-xs-offset-3" style="margin-top: 3%;">
+    <form class="form-horizontal" action="data/upload.php" method="post" enctype="multipart/form-data">
+      <h3 class="form-group" style="margin-bottom: 20px" title="首页">HEART<span></span>
+      </h3>
+      <div class="form-group">
+        <label for="nTitle">标题</label>
+        <input name='nTitle' id="nTitle" class="form-control" placeholder="记" autocomplete="off"/>
+      </div>
+      <div class="form-group">
+        <label for="nTime">时间</label>
+        <input name='nTime' id="nTime" class="form-control" placeholder="年.月.日 地点 天气" autocomplete="off" />
+      </div>
+      <div class="form-group">
+        <label for="nPic">图片</label>
+        <input type="file" name='nPic' id="nPic" autocomplete="off"/>
+      </div>
+      <div class="form-group">
+        <label for="nContent">内容</label><br>
+        <textarea class="form-control" name="nContent" id="nContent" cols="78" rows="10" placeholder="随便写点什么呀" style="resize: none;"></textarea>
+      </div>
+      <div class="form-group">
+        <input type="submit" class="form-control btn-primary" value="发布"/>
+      </div>
+    </form>
+  </div>
+</div>
+<script src="js/jquery-1.11.3.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script>
+  $('h3').click(function(){
+    location.href='index.html';
+  });
+</script>
+</body>
+</html>

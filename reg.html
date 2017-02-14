@@ -8,6 +8,9 @@
   <link rel="icon" href="img/heart.png"/>
   <link href="css/bootstrap.css" rel="stylesheet">
   <style>
+    #reg h3{
+      cursor: pointer;
+    }
     #reg h3 span{
       display: inline-block;
       background: #F73859;
@@ -25,7 +28,7 @@
   <div class="container">
       <div class="col-xs-6 col-xs-offset-3" style="margin-top: 10%;margin-bottom: 10%;">
     <form id="reg" class="form-horizontal">
-      <h3 class="form-group" style="margin-bottom: 20px">HEART<span></span>
+      <h3 class="form-group" style="margin-bottom: 20px" title="首页">HEART<span></span>
       </h3>
       <div class="form-group has-feedback">
         <label class="sr-only" for="uname">用户名</label>
@@ -47,19 +50,21 @@
       <div class="form-group">
         <input id="btn-reg" type="button" class="form-control btn-primary" value="注册"/>
       </div>
-      <a style="margin-left: -15px" href="first.html">已有账号，返回首页登录</a>
+      <a style="margin-left: -15px" href="index.html">已有账号，返回首页登录</a>
     </form>
       </div>
     </div>
-  用户名限制
 <script src="js/jquery-1.11.3.js"></script>
 <script src="js/bootstrap.min.js"></script>
-<script src="js/index.js"></script>
+<!--<script src="js/index.js"></script>-->
   <script>
+    $('#reg h3').click(function(){
+      location.href='index.html';
+    });
 //    验证码
     $('img.vcode').click(function(){
       this.src='data/vcode.php?_='+Math.random();
-    })
+    });
 //登录验证
     $('#uname').blur(function(){
       var data=$(this).val();
@@ -79,22 +84,16 @@
                 success: function (list) {
                   if (list.code === 1) {
                     $('#ucode').siblings('span').html(list.msg);
-                    location.href = 'first.html';
+                    location.href = 'index.html';
                   }else if(list.code===-1){
                     $('#ucode').siblings('span').html(list.msg);
                   }
-                },
-                error: function () {
-                  alert('响应完成但有问题，请检查network');
                 }
               })
-
             })
-
           } else if(list.code===0){
             $('#uname').next('span').html(list.msg);
             $('#uname').next().next().removeClass('glyphicon-ok-sign').addClass('glyphicon-exclamation-sign').parent().removeClass('has-success').addClass('has-warning');
-
           }
         }
       })

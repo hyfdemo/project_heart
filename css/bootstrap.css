@@ -4003,7 +4003,6 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .nav {
   margin-bottom: 0;
-  padding-left: 0;
   list-style: none;
 }
 .nav > li {
@@ -5024,7 +5023,6 @@ a.badge:focus {
   margin-bottom: 20px;
   line-height: 1.42857143;
   background-color: #fff;
-  border: 1px solid #ddd;
   border-radius: 4px;
   -webkit-transition: border 0.2s ease-in-out;
   -o-transition: border 0.2s ease-in-out;
@@ -5042,7 +5040,7 @@ a.thumbnail.active {
 }
 .thumbnail .caption {
   padding: 9px;
-  color: #fff;
+  color: #000;
   opacity: 0;
 }
 .alert {

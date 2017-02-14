@@ -4004,7 +4004,6 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .nav {
   margin-bottom: 0;
-  padding-left: 0;
   list-style: none;
 }
 .nav > li {
@@ -5025,7 +5024,6 @@ a.badge:focus {
   margin-bottom: 20px;
   line-height: 1.42857143;
   background-color: #fff;
-  border: 1px solid #ddd;
   border-radius: 4px;
   -webkit-transition: border 0.2s ease-in-out;
   -o-transition: border 0.2s ease-in-out;
@@ -5043,7 +5041,7 @@ a.thumbnail.active {
 }
 .thumbnail .caption {
   padding: 9px;
-  color: #fff;
+  color: #000;
   opacity: 0;
 }
 .alert {
@@ -6781,9 +6779,37 @@ body::-webkit-scrollbar {
 #note-box,
 #comment-box {
   box-shadow: 0 5px 7px -7px rgba(0, 0, 0, 0.15);
+  padding: 5rem 0;
+}
+#skill-box {
+  margin-top: 2px;
+}
+#skill > div {
+  margin: 10px auto;
 }
 #poem-box {
   background: #F0F5F9;
+}
+#visit-box {
+  background: #FFF6FA;
+}
+#eat-box {
+  background: #F0FFFA;
+}
+#note-box {
+  background: #F0F6FF;
+}
+#comment-box {
+  background: #F8f8f8;
+}
+#car-title p,
+#poem-title p,
+#visit-title p,
+#eat-title p,
+#skill-title p,
+#note-title p,
+#comment-title p {
+  padding: 2rem 0;
 }
 .navbar-header > a > span,
 h3 > span {
@@ -6819,27 +6845,30 @@ div.panel-title > span {
 div.panel-title > span.active {
   transform: rotate(45deg);
 }
-#to-top {
+#to-top,
+#to-bottom {
   position: fixed;
   bottom: 80px;
   right: 25px;
   width: 40px;
   height: 40px;
-  border-radius: 40px;
   line-height: 40px;
-  color: #fff;
-  background: rgba(100, 100, 100, 0.8);
+  color: #F73859;
   text-decoration: none;
-  transition: .2s linear;
+  transition: .5s linear;
   opacity: 0;
 }
-#to-top:hover {
+#to-top {
+  bottom: 120px;
+}
+#to-top:hover,
+#to-bottom:hover {
   color: #000;
-  background: #fff;
   text-decoration: none;
 }
-.navbar-nav.nav li.active a {
-  color: #F73859;
+.navbar-nav.nav li a.active {
+  font-weight: bold;
+  color: #F73859 !important;
 }
 .navbar-nav.nav li a:after {
   content: '';
@@ -6889,14 +6918,14 @@ a.navbar-brand {
   background-color: #fff;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
-#ban .item {
+#ban-box .item {
   background-attachment: fixed;
 }
-#ban .carousel-inner:after {
+#ban-box .carousel-inner:after {
   content: '';
   position: absolute;
 }
-#ban .carousel-inner .item:before {
+#ban-box .carousel-inner .item:before {
   background-color: rgba(44, 62, 80, 0.4);
   position: absolute;
   top: 0;
@@ -6906,13 +6935,13 @@ a.navbar-brand {
   content: "";
   z-index: 9;
 }
-#ban .carousel-inner .carousel-caption h1 {
+#ban-box .carousel-inner .carousel-caption h1 {
   margin-bottom: 4rem;
 }
-#ban .downArrow {
+#ban-box .downArrow {
   color: #fff;
   position: absolute;
-  bottom: 10px;
+  bottom: 20px;
   left: 50%;
   -webkit-transform: translateX(-50%);
   -moz-transform: translateX(-50%);
@@ -6939,6 +6968,10 @@ a.navbar-brand {
   -o-animation-delay: 1.5s;
   animation-delay: 1.5s;
 }
+#day img {
+  max-width: 100%;
+  height: auto;
+}
 .media img {
   width: 50px;
   height: 50px;
@@ -6963,16 +6996,7 @@ a.navbar-brand {
 .thumbnail > img {
   position: relative;
   right: -50px;
-  transition: .5s linear;
-}
-.thumbnail .pic-mask {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0);
-  transition: all .5s linear;
+  transition: .3s linear;
 }
 .thumbnail .caption span {
   font-size: 20px;
@@ -6987,7 +7011,6 @@ a.navbar-brand {
   background: rgba(0, 0, 0, 0.4);
 }
 .nav-tabs > li {
-  width: 10rem;
   display: inline-block;
 }
 #car-lexus .close {
@@ -6999,39 +7022,24 @@ a.navbar-brand {
   color: #fff;
   opacity: 1;
 }
-/* entire container, keeps perspective */
-.flip-container {
-  perspective: 1000px;
-}
-/* flip the pane when hovered */
-.flip-container:hover .flipper {
-  transform: rotateY(180deg);
-}
-/* flip speed goes here */
-.flipper {
-  transition: 0.6s;
-  transform-style: preserve-3d;
+.footer strong {
   position: relative;
 }
-/* hide back of pane during swap */
-.front,
-.back {
-  backface-visibility: hidden;
+.footer strong:after {
+  content: '';
+  opacity: 0;
+  -webkit-transition: .5s linear;
+  -moz-transition: .5s linear;
+  -ms-transition: .5s linear;
+  -o-transition: .5s linear;
+  transition: .5s linear;
   position: absolute;
-  top: 0;
-  left: 0;
+  top: -60px;
+  width: 100px;
+  height: 100px;
+  right: -110px;
+  background: url(../img/wx.jpg) no-repeat;
 }
-/* front pane, placed above back */
-.front {
-  z-index: 2;
-}
-.front h3 {
-  position: absolute;
-  top: 70%;
-  left: 1%;
-  color: #fff;
-}
-/* back, initially hidden pane */
-.back {
-  transform: rotateY(180deg);
+.footer strong:hover:after {
+  opacity: 1;
 }

@@ -12,22 +12,24 @@ INSERT INTO udata VALUES
 CREATE TABLE comm(
  cid INT PRIMARY KEY AUTO_INCREMENT,
  comment VARCHAR(1000),
- ucname VARCHAR(32)
+ ucname VARCHAR(32),
+ cTime VARCHAR(32)
 );
 INSERT INTO comm VALUES
-(NULL,'徒儿，救我！','唐僧'),
-(NULL,'师兄，师傅被妖怪抓走了！','沙僧'),
-(NULL,'师兄，二师兄被妖怪抓走了！','沙僧'),
-(NULL,'师兄，白龙马被妖怪抓走了！','沙僧'),
-(NULL,'师兄，快来救我呀！','沙僧'),
-(NULL,'妖怪！哪里走！','孙悟空'),
-(NULL,'到此一游！','孙悟空'),
-(NULL,'秋水时至，百川灌河','李秋水'),
-(NULL,'曾经沧海难为水。','李沧海'),
-(NULL,'除却巫山不是云。','巫行云');
+(NULL,'徒儿，救我！','唐僧','2017.1.1'),
+(NULL,'师兄，师傅被妖怪抓走了！','沙僧','2017.1.1'),
+(NULL,'师兄，二师兄被妖怪抓走了！','沙僧','2017.1.1'),
+(NULL,'师兄，白龙马被妖怪抓走了！','沙僧','2017.1.1'),
+(NULL,'师兄，快来救我呀！','沙僧','2017.1.1'),
+(NULL,'妖怪！哪里走！','孙悟空','2017.1.1'),
+(NULL,'到此一游！','孙悟空','2017.1.1'),
+(NULL,'秋水时至，百川灌河','李秋水','2017.1.10'),
+(NULL,'曾经沧海难为水。','李沧海','2017.1.10'),
+(NULL,'除却巫山不是云。','巫行云','2017.1.10');
 CREATE TABLE reply(
  rid INT PRIMARY KEY AUTO_INCREMENT,
  reply_comment VARCHAR(1000),
+ reply_time VARCHAR(32),
  urname VARCHAR(32),
  rcid INT
 );
@@ -41,9 +43,10 @@ bContent2 VARCHAR(1024)
 );
 INSERT INTO banners VALUES
 (NULL,'bm','bm.jpg','黑镜','《黑镜》（Black Mirror）是英国电视4台（Channel 4）及美国NetFlix公司出品的迷你电视剧。','该剧分别以多个建构于现代科技背景的独立故事，表达了当代科技对人性的利用、重构与破坏。'),
-(NULL,'ww','ww.jpg','西部世界','《西部世界》（West World）是2016年HBO发行的科幻类连续剧，创意源自1973年同名电影。','该剧讲述了由一座巨型高科技以西部世界为主题的成人乐园，提供给游客杀戮与性欲的满足，随着接待员有了自主意识和思维，他们开始怀疑这个世界的本质，进而觉醒并反抗人类的故事。'),
+(NULL,'ww','ww.jpg','西部世界','《西部世界》（West World）是美国HBO发行的科幻类连续剧，创意源自1973年同名电影。','该剧讲述了由一座巨型高科技以西部世界为主题的成人乐园，提供给游客杀戮与性欲的满足，随着接待员有了自主意识和思维，他们开始怀疑这个世界的本质，进而觉醒并反抗人类的故事。'),
 (NULL,'got','got.jpg','权力的游戏','《权力的游戏》（Game of Thrones），是美国HBO电视网制作推出的一部中世纪史诗奇幻题材的电视剧。','该剧改编自美国作家乔治·R·R·马丁的奇幻小说《冰与火之歌》系列。'),
-(NULL,'hoc','hoc.jpg','纸牌屋','《纸牌屋》（House of Cards）由奈飞公司（Netflix）出品的政治题材电视剧，改编自迈克尔·多布斯创作的同名小说。','该剧讲述一个冷血无情的美国国会议员及与他同样野心勃勃的妻子在华盛顿白宫中运作权力的故事。主人公弗兰克·安德伍德是美国国会众议院多数党党鞭，是一个老谋深算的职业政客，他坚信新当选的美国总统及其幕僚背叛了他，于是发誓要将这一任总统赶下台，并自己当总统。');
+(NULL,'hoc','hoc.jpg','纸牌屋','《纸牌屋》（House of Cards）由奈飞公司（Netflix）出品的政治题材电视剧，改编自迈克尔·多布斯创作的同名小说。','该剧讲述一个冷血无情的美国国会议员及与他同样野心勃勃的妻子在华盛顿白宫中运作权力的故事。主人公弗兰克·安德伍德是美国国会众议院多数党党鞭，是一个老谋深算的职业政客，他坚信新当选的美国总统及其幕僚背叛了他，于是发誓要将这一任总统赶下台，并自己当总统。'),
+(NULL,'lh','lh.jpg','胜者即是正义','《胜者即是正义》（Legal High）是日本富士电视台发行的法律题材电视剧，该剧由堺雅人、新垣结衣等主演。','该剧讲述的是官司胜诉率高达100%却性格偏执的律师古美门研介，和坦率得有些鲁莽的后辈黛真知子这对“凹凸组合”一起解决疑难案件的故事。');
 CREATE TABLE cars(
   carid INT PRIMARY KEY AUTO_INCREMENT,
   carbrand VARCHAR(32),
@@ -52,10 +55,10 @@ CREATE TABLE cars(
   carimg_lg VARCHAR(128)
 );
 INSERT INTO cars VALUES
-(NULL,'LEXUS','RCF','rcf.png','rcf-lg.png'),
-(NULL,'LEXUS','ESH','esh.png','esh-lg.png'),
-(NULL,'LEXUS','LS','ls.png','ls-lg.png'),
-(NULL,'LEXUS','NX','nx.png','nx-lg.png');
+(NULL,'LEXUS','RCF','rcf.png','rcf-lg.jpg'),
+(NULL,'LEXUS','ESH','esh.png','esh-lg.jpg'),
+(NULL,'LEXUS','LS','ls.png','ls-lg.jpg'),
+(NULL,'LEXUS','NX','nx.png','nx-lg.jpg');
 CREATE TABLE poems(
 pid INT PRIMARY KEY AUTO_INCREMENT,
 pAuthor VARCHAR(32),
@@ -105,15 +108,16 @@ INSERT INTO eat VALUES
 CREATE TABLE notes(
 nid INT PRIMARY KEY AUTO_INCREMENT,
 nTitle VARCHAR(64),
+nPic VARCHAR(1024),
 nContent VARCHAR(1024),
-nTime VARCHAR(1000)
+nTime VARCHAR(1024)
 );
 INSERT INTO notes VALUES
-(NULL,'思','<img src="img/cd/jzg.jpg" alt=""><p>除夕将至，第一次没有</p><p>其实也算不上乔迁，爷爷的旧宅子，父辈兄弟合力，翻修重建特别是在年底，这个喜旧迎新的时节</p><p>不免真的觉得衰败的新生相当感慨。</p><p>特别是在年底，这个喜旧迎新的时节</p><p>好像很多往事，被年关一催，不断提纯</p>','2017.1.27 深圳 晴'),
-(NULL,'Git','<img src="img/note/git.jpg" alt="">','2016.6.10 成都 阴');
---(NULL,'','',''),
---(NULL,'','',''),
---(NULL,'','',''),
---(NULL,'','',''),
---(NULL,'','','');
+(NULL,'Git','<img src="img/note/git.jpg" alt="">','Study','2016.6.1 成都 阴'),
+(NULL,'win10 壁纸','<img src="img/note/green.jpg" alt="">','<p>天气又阴，来张养眼的壁纸，舒缓一下眼睛</p>','2016.8.8 成都 阴'),
+(NULL,'Happy Birthday','<img src="img/note/waterdrop.jpg" alt="">','<p>生日快乐，我对自己说，蜡烛没亮，雨滴下来了</p><p>程序猿的加班日常，加油吧，少年！</p>','2016.9.20 成都 雨'),
+(NULL,'Clothes','<img src="img/note/clothes.jpg" alt="">','<p>今天是个好日子，又有妹纸陪</p><p>Clothes展示设计的很有风格，妹纸很萌，你懂重点..</p>','2016.11.11 成都 晴'),
+(NULL,'Food UI','<img src="img/note/food.jpg" alt="">','<p>一日三餐勾人食欲呀，而且这UI 喜欢！</p>','2016.12.15 成都 阴'),
+(NULL,'Web Colors','<img src="img/note/color.jpg" alt="">','<p>传说中的Default Colors，并不吸睛嘛，嘿嘿嘿</p>','2017.1.1 成都 雨'),
+(NULL,'Past | Future','<img src="img/cd/jl.jpg" alt="">','<p>年关将至，年味愈来愈浓，家里也开始采购年货，打扫卫生，一幅忙忙碌碌的景象</p><p>但身为一个争分夺秒的程序猿，还是要抠点时间来写篇年末感想，来年计划</p><p>2017年，鸡年，响应国家的口号，我们不要停步不前，要发展！要往大城市走！</p><p>深圳，I\'m coming！受够了成都的阴冷，深圳的太阳应该暖暖哒，对我这种怕冷的人来说，不啻于大棒过后的一颗甜枣。偷笑..</p><p>远离家乡，不胜唏嘘，还是义无反顾！Come on！</p>','2017.1.26 渠县 晴');
 
